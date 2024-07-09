@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post Mockup Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+  </head>
+  <body class="flex full start transition">
+    <div class="flex content full">
+      <h1>Post Mockup Generator &nbsp;📷</h1>
+      <p class="secondary">Instantly generate social media post mockups.</p>
+
+      <div class="post flex gaps transition top">
+        <div class="flex row gaps full start">
+          <img class="profile img right hidden" src="/" alt="Profile picture" />
+          <div class="profile initial flex right transition">
+            <span class="initials text" contentEditable autocapitalize="false">JD</span>
+          </div>
+          <span class="name bold underline" contentEditable autocapitalize="false">John Doe</span>
+          <i class="verify hidden icon accent sm fa-solid fa-circle-check"></i>
+          <span class="subtitle">&#x2022;</span>
+          <div class="flex row no-gap">
+            <span class="date subtitle right" contentEditable autocapitalize="false">4mo</span>
+            <span class="subtitle">ago</span>
+          </div>
+        </div>
+        <h3 class="title full left topsm" contenteditable autocapitalize="false">Click to edit text</h3>
+        <p class="description secondary full left" contenteditable autocapitalize="false">Or upload JSON data.</p>
+        <img class="image tops hidden" src="/" alt="Post image" />
+        <div class="flex row full between tops">
+          <div class="flex row">
+            <div class="flex row gaps">
+              <i class="icon secondary subtitle fa-regular fa-heart"></i>
+              <span class="likes secondary subtitle" contentEditable>17</span>
+            </div>
+            <div class="flex row gaps">
+              <i class="icon secondary subtitle fa-regular fa-comment"></i>
+              <span class="comments secondary subtitle" contentEditable>7</span>
+            </div>
+            <div class="flex row gaps">
+              <i class="icon secondary subtitle fa-regular fa-share-from-square"></i>
+              <span class="shares secondary subtitle" contentEditable>5</span>
+            </div>
+          </div>
+          <div class="socials flex row gaps">
+            <i class="icon primary subtitle fa-brands fa-reddit" data-platform="reddit"></i>
+            <i class="icon primary subtitle fa-brands fa-x-twitter hidden" data-platform="twitter"></i>
+            <i class="icon primary subtitle fa-brands fa-instagram hidden" data-platform="instagram"></i>
+            <i class="icon primary subtitle fa-brands fa-tiktok hidden" data-platform="tiktok"></i>
+            <i class="icon primary subtitle fa-brands fa-youtube hidden" data-platform="youtube"></i>
+            <i class="icon primary subtitle fa-brands fa-facebook hidden" data-platform="facebook"></i>
+          </div>
+        </div>
+      </div>
+      <div class="settings flex row wrap top">
+        <button class="light button flex row">
+          <p class="bold secondary">Light mode</p>
+        </button>
+        <button class="scaled button flex row">
+          <p class="bold secondary">Scale: 2x</p>
+        </button>
+        <button class="width button flex row">
+          <p class="bold secondary">Width: 400px</p>
+        </button>
+        <button class="titled button flex row">
+          <p class="bold secondary">Disable title</p>
+        </button>
+        <button class="verified button flex row">
+          <p class="bold secondary">Verify</p>
+        </button>
+        <!-- <button class="randomized button flex row gaps">
+          <i class="icon subtitle right fa-regular fa-circle-question"></i>
+          <p class="bold secondary">Randomize</p>
+        </button> -->
+      </div>
+
+      <div class="flex row wrap topl bottom">
+        <button class="next button alt flex row gaps tops">
+          <i class="icon lg right fa-solid fa-arrow-right"></i>
+          <span class="bold">Next Post</span>
+        </button>
+        <button class="load button alt flex row gaps tops">
+          <i class="icon lg right fa-solid fa-arrow-up-from-bracket"></i>
+          <span class="bold">Load JSON</span>
+        </button>
+        <button class="generate button alt flex row gaps tops">
+          <i class="icon lg right fa-solid fa-wand-magic-sparkles"></i>
+          <span class="bold">Generate Post</span>
+        </button>
+      </div>
+
+      <textarea class="json alt left top" placeholder="Enter JSON data here:" autocapitalize="false"></textarea>
+
+      <a class="download hidden">Download</a>
+    </div>
+  </body>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+</html>
