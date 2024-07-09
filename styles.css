@@ -124,6 +124,10 @@ button:has(p) {
   padding: 0.5rem 1rem;
 }
 
+button p {
+  line-height: 1.25rem;
+}
+
 button span {
   font-size: 1rem;
 }
