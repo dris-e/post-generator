@@ -18,6 +18,7 @@ let scale = 2;
 let width = 400;
 let jsons = [];
 let index = 0;
+let titleState = 0;
 
 const generateInitials = (name) => {
   return name
@@ -28,6 +29,15 @@ const generateInitials = (name) => {
     .toUpperCase()
     .slice(0, 2);
 };
+
+const visibility = () => {
+  const socials = document.querySelectorAll(".social");
+  socials.forEach((social) => {
+    social.classList.toggle("hidden-false", social.querySelector("span").textContent === "0");
+  });
+};
+
+visibility();
 
 const updateJson = () => {
   const platform = Array.from(socials)
@@ -47,10 +57,12 @@ const updateJson = () => {
     width: width,
     profileImage: profile.classList.contains("hidden") ? null : profile.src,
     titleHidden: title.classList.contains("hidden"),
+    descriptionHidden: description.classList.contains("hidden"),
     platform: platform,
   };
   jsons[index] = data;
   document.querySelector(".json").value = JSON.stringify(jsons, null, 2);
+  visibility();
 };
 
 socials.forEach((icon) => {
@@ -78,9 +90,21 @@ initials.oninput = updateJson;
 date.oninput = updateJson;
 title.oninput = updateJson;
 description.oninput = updateJson;
-likes.oninput = updateJson;
-comments.oninput = updateJson;
-shares.oninput = updateJson;
+
+likes.oninput = () => {
+  updateJson();
+  visibility();
+};
+
+comments.oninput = () => {
+  updateJson();
+  visibility();
+};
+
+shares.oninput = () => {
+  updateJson();
+  visibility();
+};
 
 const lightButton = document.querySelector(".light");
 const scaleButton = document.querySelector(".scaled");
@@ -112,12 +136,28 @@ widthButton.onclick = () => {
 };
 
 titleButton.onclick = () => {
-  title.classList.toggle("hidden");
-  description.classList.toggle("secondary");
-  description.classList.toggle("topsm");
+  titleState = (titleState + 1) % 3;
 
-  const isDisabled = title.classList.contains("hidden");
-  titleButton.querySelector("p").textContent = isDisabled ? "Enable title" : "Disable title";
+  const updateClasses = (titleHidden, descriptionHidden, descriptionSecondary, descriptionTopsm, buttonText) => {
+    title.classList.toggle("hidden", titleHidden);
+    description.classList.toggle("hidden", descriptionHidden);
+    description.classList.toggle("secondary", descriptionSecondary);
+    description.classList.toggle("topsm", descriptionTopsm);
+    titleButton.querySelector("p").textContent = buttonText;
+  };
+
+  switch (titleState) {
+    case 0:
+      updateClasses(false, false, false, false, "Disable title");
+      break;
+    case 1:
+      updateClasses(true, false, true, true, "Disable description");
+      break;
+    case 2:
+      updateClasses(false, true, false, false, "Enable title");
+      break;
+  }
+
   updateJson();
 };
 
@@ -163,6 +203,11 @@ const loadPost = (i) => {
       description.classList.toggle("topsm", !data.titleHidden);
       titleButton.querySelector("p").textContent = data.titleHidden ? "Enable title" : "Disable title";
     }
+    if (data.descriptionHidden == undefined || !data.description) {
+      description.classList.toggle("hidden", data.descriptionHidden);
+      titleButton.querySelector("p").textContent = data.descriptionHidden ? "Enable description" : "Disable description";
+    }
+
     if (data.image) {
       image.src = data.image;
       image.classList.remove("hidden");

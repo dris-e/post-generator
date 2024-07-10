@@ -77,6 +77,7 @@ h1 {
 
 h3 {
   font-size: 1.15rem;
+  line-height: 1.5rem;
 }
 
 p {
@@ -132,6 +133,10 @@ button span {
   font-size: 1rem;
 }
 
+button .icon:hover {
+  color: var(--primary);
+}
+
 button:hover {
   background-color: var(--accent);
 }
@@ -146,6 +151,19 @@ button:active {
 
 .hidden {
   display: none !important;
+}
+
+.hidden-false {
+  opacity: 0;
+}
+
+.social {
+  padding: 1rem;
+  margin: -1rem;
+}
+
+.social:hover {
+  opacity: 1 !important;
 }
 
 .profile {
@@ -313,6 +331,7 @@ button:active {
 
 .icon {
   cursor: pointer;
+  color: var(--primary);
   /* transition: var(--animation); */
 }
 
